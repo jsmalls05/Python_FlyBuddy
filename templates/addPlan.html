@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Plan</title>
+</head>
+
+<body>
+    {% if messages %} {% for message in messages %}
+    <p style="color: red;">{{message}}</p>
+    {% endfor %} {% endif %}
+    <h1>Add a Trip</h1>
+    <a href="/travels">Home</a> |
+    <a href="/logout">Log Out</a>
+    <form action="/travels/upload" method="POST">
+        {% csrf_token %}
+        <p>Destination: <input type="text" name="desti" id=""></p>
+        <p>Description:<input type=" text " name="desc" id=""></p>
+        <p>Travel Date From:<input type="date" name="from" id=""></p>
+        <p>Travel Date:<input type="date" name="to" id=""></p>
+        <p><input type="submit" value="Add"></p>
+    </form>
+
+</body>
+
+</html>

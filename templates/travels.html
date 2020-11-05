@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Dashboard</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<a href="/logout">Log Out</a>
+
+<body>
+    <h1>Hello, {{ logInUser.name}}!</h1>
+    <h2>Your Trip Schedules</h2>
+    <table>
+        <tr>
+            <th>Desitination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Plan</th>
+        </tr>
+        {% for postObj in userTrips %}
+        <tr>
+            <td><a href="destination/{{postObj.id}}">{{postObj.desti}}</a>
+                <td>{{postObj.startDate}}</td>
+                <td>{{postObj.endDate}}</td>
+                <td>{{postObj.plan}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Other User Travel Plans</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Desitination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Do you want to Join?</th>
+        </tr>
+        {% for postObj in nonuserTrips %}
+        <tr>
+            <td>{{postObj.user.name}}</td>
+            <td><a href="destination/{{postObj.id}}">{{postObj.desti}}</a> </td>
+            <td>{{postObj.startDate}}</td>
+            <td>{{postObj.endDate}}</td>
+            <td><a href="/travels/jointrip/{{postObj.id}}">Join</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/travels/add">Add Travel Plan</a>
+
+
+</body>
+
+</html>

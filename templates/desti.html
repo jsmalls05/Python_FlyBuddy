@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination</title>
+</head>
+
+<body>
+    <a href="/travels">Home</a> |
+    <a href="/logout">Log Out</a>
+    <div class="top">
+        <h1>{{tripInfo.desti}}</h1>
+        <h4>Planned By: {{tripInfo.user.name}}</h4>
+        <h4>Description:{{tripInfo.plan}}</h4>
+        <h4>Travel Date From:{{tripInfo.startDate}}</h4>
+        <h4>Travel Date To:{{tripInfo.endDate}}</h4>
+
+    </div>
+    <div class="bottom">
+        <h1>Other users' joining the trip</h1>
+        {% for userObj in tripInfo.fav.all %}
+        <h4>{{userObj.name}}</h4>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
