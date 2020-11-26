@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style>
+    body {
+        max-width: 500px;
+        margin: auto;
+        border: 3px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
 
 <head>
     <meta charset="UTF-8">
@@ -12,16 +23,20 @@
     <a href="/logout">Log Out</a>
     <div class="top">
         <h1>{{tripInfo.desti}}</h1>
-        <h4>Planned By: {{tripInfo.user.name}}</h4>
-        <h4>Description:{{tripInfo.plan}}</h4>
-        <h4>Travel Date From:{{tripInfo.startDate}}</h4>
-        <h4>Travel Date To:{{tripInfo.endDate}}</h4>
-
+        <h2>Planned By:</h2>
+        <h4> {{tripInfo.user.name}}</h4>
+        <h4>Description: {{tripInfo.plan}}</h4>
+        <h4>Travel Date From: {{tripInfo.startDate}}</h4>
+        <h4>Travel Date To: {{tripInfo.endDate}}</h4>
     </div>
+
     <div class="bottom">
-        <h1>Other users' joining the trip</h1>
+        <h1>Other users' Joining the Trip</h1>
         {% for userObj in tripInfo.fav.all %}
-        <h4>{{userObj.name}}</h4>
+        <li>
+            {{userObj.name}}
+        </li>
+
         {% endfor %}
     </div>
 </body>
