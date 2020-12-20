@@ -24,7 +24,7 @@
     {% endfor %} {% endif %}
     <h1>Add a Trip</h1>
     <a href="/travels">Home</a> |
-    <a href="/logout">Log Out</a>
+    <a href="/logout">Log Out</a> 
     <form action="/travels/upload" method="POST">
         {% csrf_token %}
         <p>Destination: <input type="text" name="desti" id=""></p>
